@@ -1,6 +1,6 @@
 	CMP A,0
 	JEQ end
-	MOVasda (i),A
 	MOV (b0),B
-	MOVI A,B
+	MOV A,B
+	MOV (10),1
 end:	MOV B,A

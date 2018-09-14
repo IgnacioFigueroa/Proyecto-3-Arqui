@@ -26,14 +26,15 @@ for line in program:
 
 for line in program:
     print line
-    raw_input()
     ind = program.index(line)
     if "(" in line and ")" in line and "(A)" not in line and "(B)" not in line:
         start=line.index('(')+1
         while line[start] != ')':
             line = line.replace(line[start], "")
             program[ind] = line
+        print "linea", line
         program[ind]= line[:line.index('(')+1]+"DIR"+line[line.index(')'):]
+        print "linea2: ", program[ind]
     if line.find(',') != -1:
         if line[line.index(",")+1:].isdigit():
             line = line[: line.index(",")+1] + "LIT"
