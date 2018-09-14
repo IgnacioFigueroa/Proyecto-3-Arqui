@@ -1,0 +1,28 @@
+    MOV (10),114
+    MOV (11),97
+    MOV (12),100
+    MOV (13),97
+    MOV (14),114
+    MOV (1),9
+    MOV (2),15
+    MOV (3),1
+    MOV (4),(1)
+    MOV (5),(2)
+    MOV (6),0
+    MOV (7),0
+ciclo:  MOV A,(4)
+    SUM A,1
+    MOV B,(5)
+    SUB B,1
+    JGT end
+    MOV A,(4)
+    SUM A,1
+    MOV (4),A
+    MOV A,(A)
+    MOV B,(5)
+    SUB B,1
+    MOV (5),B
+    MOV B,(B)
+    JEQ ciclo
+    MOV(3),0
+end:    MOV(100),1

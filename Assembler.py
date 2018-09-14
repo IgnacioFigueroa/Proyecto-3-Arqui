@@ -25,8 +25,10 @@ for line in program:
 #Reemplazo lo que esta dentro del parentesis por un DIR
 
 for line in program:
+    print line
+    raw_input()
     ind = program.index(line)
-    if "(" in line and ")" in line:
+    if "(" in line and ")" in line and "(A)" not in line and "(B)" not in line:
         start=line.index('(')+1
         while line[start] != ')':
             line = line.replace(line[start], "")

@@ -1,0 +1,49 @@
+
+//Definimos la palabra "radar" en memoria
+MOV (10),114
+MOV (11),97
+MOV (12),100
+MOV (13),97
+MOV (14),114
+
+//Definimos variables auxiliares
+MOV (1),9 //(Inicio -1) -> primera iteracion aumenta y luego compara
+MOV (2),15 //(Fin +1) -> primera iteracion disminuye y luego compara
+
+MOV (3),1 //Var Res
+MOV (4),(1) //Contador creciente
+MOV (5),(2) //Contador decreciente
+
+MOV (6),0 //Siguiente letra a comparar regA
+MOV (7),0 //Siguiente letra a comparar regB
+
+
+ciclo:
+
+    MOV A,(4)
+    SUM A,1
+
+    MOV B,(5)
+    SUB B,1
+
+    JGT end // Si el c.cre>c.dec => ya se compararon todas las letras por lo tanto terminamos
+
+    //Carga en regA la siguiente letra a comparar
+    MOV A,(4)
+    SUM A,1
+    MOV (4),A
+    MOV A,(A) //letra a comprar queda en regA
+
+    //Carga en regB la siguiente letra a comparar
+    MOV B,(5)
+    SUB B,1
+    MOV (5),B
+    MOV B,(B) //letra a comprar queda en regB
+
+
+    JEQ ciclo //Si las letras son iguales entonces seguimos comparando (retorna al label "ciclo")
+    MOV(3),0 //No es palindromo => se asigna 0 a la memoria en direccion (3) (direccion de RES)
+
+end:
+
+
