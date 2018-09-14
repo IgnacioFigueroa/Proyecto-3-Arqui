@@ -1,0 +1,6 @@
+	CMP A,0
+	JEQ end
+	MOVasda (i),A
+	MOV (b0),B
+	MOVI A,B
+end:	MOV B,A
